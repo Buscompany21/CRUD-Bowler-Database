@@ -59,7 +59,7 @@ namespace Mission13
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("team",
-                    "{bowlerTeam}",
+                    "{teamName}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("BowlerID",

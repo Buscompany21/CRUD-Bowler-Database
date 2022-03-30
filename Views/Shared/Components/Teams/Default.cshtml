@@ -12,6 +12,6 @@
     @foreach (string t in Model)
     {
         <a asp-controller="Home" asp-action="Index" asp-route-teamName="@t" 
-           class="btn nav-link mb-2 @(ViewBag.SelectedTeam == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
+           class="btn nav-link mb-2 @(ViewBag.teamName == t ? "btn-primary" : "btn-outline-secondary")">@t</a>
     }
 </div>
