@@ -12,17 +12,18 @@ namespace Mission13.Controllers
 {
     public class HomeController : Controller
     {
-        private BowlersDbContext _context { get; set; }
+        private IBowlersRepository _repo { get; set; }
 
         //Constructor
-        public HomeController(BowlersDbContext temp)
+        public HomeController(IBowlersRepository temp)
         {
-            _context = temp;
+            _repo = temp;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string bowlerTeam)
         {
-            var blah = _context.Bowlers
+            var blah = _repo.Bowlers
+                //.Include(x => teams)
                 //.FromSqlRaw("SELECT * FROM Recipes WHERE RecipeTitle Like 'a%'")
                 .ToList();
 
