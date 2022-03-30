@@ -28,7 +28,7 @@ namespace Mission13.Controllers
                 .Where(p => p.Team.TeamName == teamName || teamName == null)
                 .ToList();
 
-            ViewBag.teamName = teamName;
+            ViewBag.teamNameBag = teamName;
 
             return View(blah);
         }
@@ -71,7 +71,7 @@ namespace Mission13.Controllers
             if (ModelState.IsValid)
             {
                 _repo.SaveBowler(b);
-                return RedirectToAction("Index", b);
+                return RedirectToAction("Index");
             }
             else
             {
