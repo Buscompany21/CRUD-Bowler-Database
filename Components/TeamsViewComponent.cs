@@ -18,8 +18,10 @@ namespace Mission13.Views.Components
 
         public IViewComponentResult Invoke()
         {
+            ViewBag.SelectedTeam = RouteData?.Values["bowlerTeam"];
+
             var teams = repo.Bowlers
-                .Select(x => x.BowlerFirstName) //put the teams here later
+                .Select(x => x.Team.TeamName) 
                 .Distinct()
                 .OrderBy(x => x);
 

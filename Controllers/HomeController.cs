@@ -20,11 +20,12 @@ namespace Mission13.Controllers
             _repo = temp;
         }
 
-        public IActionResult Index(string bowlerTeam)
+        public IActionResult Index(string teamName)
         {
             var blah = _repo.Bowlers
                 //.Include(x => teams)
                 //.FromSqlRaw("SELECT * FROM Recipes WHERE RecipeTitle Like 'a%'")
+                .Where(p => p.Team.TeamName == teamName || teamName == null)
                 .ToList();
 
             return View(blah);
