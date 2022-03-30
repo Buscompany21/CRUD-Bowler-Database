@@ -28,6 +28,8 @@ namespace Mission13.Controllers
                 .Where(p => p.Team.TeamName == teamName || teamName == null)
                 .ToList();
 
+            ViewBag.teamName = teamName;
+
             return View(blah);
         }
 
