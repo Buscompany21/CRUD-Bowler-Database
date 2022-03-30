@@ -62,6 +62,10 @@ namespace Mission13
                     "{bowlerTeam}",
                     new { Controller = "Home", action = "Index" });
 
+                endpoints.MapControllerRoute("BowlerID",
+                    "Edit/BowlerID/{BowlerID}",
+                    new { Controller = "Home", action = "Edit" });
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}");
