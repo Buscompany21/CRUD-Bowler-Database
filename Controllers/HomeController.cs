@@ -48,7 +48,10 @@ namespace Mission13.Controllers
                 _repo.AddBowler(b);
                 _repo.SaveBowler(b);
 
-                return View("Index", b);
+                var blah = _repo.Bowlers
+                .ToList();
+
+                return View("Index", blah);
             }
             else
             {
@@ -85,7 +88,10 @@ namespace Mission13.Controllers
         {
             var bowler = _repo.Bowlers.Single(x => x.BowlerID == BowlerID);
             _repo.DeleteBowler(bowler);
-            return View("Index");
+
+            var blah = _repo.Bowlers
+                .ToList();
+            return View("Index", blah);
         }
 
     }
